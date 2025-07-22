@@ -26,7 +26,7 @@ export const metadata = {
   description:
     "Indocs Media is a creative digital agency offering UI/UX design, Webflow development, video editing, motion ads, and branding for businesses and content creators. We blend design, tech, and strategy to craft impactful digital experiences.",
   icons: {
-    icon: "/assets/logo.jpg",
+    icon: "/assets/favicon.svg",
   },
   openGraph: {
     title: "Indocs Media | Digital Solutions for Modern Brands",
