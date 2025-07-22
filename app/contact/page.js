@@ -10,17 +10,42 @@ import Link from "next/link";
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [menuOpen, setMenuOpen] = useState(false);
+  const [loading, setLoading] = useState(false); // new loading state
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Submit form logic
-    alert("Message sent!");
-    setForm({ name: "", email: "", message: "" });
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+   setLoading(true); // start loader
+
+  try {
+    const res = await fetch("https://idm-form-backend.onrender.com/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert(data.message || "Message sent!");
+      setForm({ name: "", email: "", message: "" });
+    } else {
+      alert(data.message || "Failed to send message.");
+    }
+  } catch (error) {
+    console.error("Submission error:", error);
+    alert("Something went wrong. Please try again later.");
+  } finally {
+      setLoading(false); // stop loader
+    }
+};
+
+
 
   return (
     <section className="min-h-screen bg-white text-gray-800 py-20 px-6">
@@ -35,6 +60,7 @@ export default function ContactPage() {
             src="/assets/logo.jpg"
             alt="Logo"
             className="w-[50px] h-[50px] rounded-md"
+            loading="lazy"
           />
         </button>
 
@@ -141,12 +167,37 @@ export default function ContactPage() {
             />
           </div>
 
-          <button
-            type="submit"
-            className="bg-[#6b22a4] text-white px-6 py-3 rounded-full hover:bg-[#902ba9] transition"
+           <button
+        type="submit"
+        disabled={loading} // disable button when loading
+        className={`px-6 py-3 rounded-full text-white transition 
+          ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-[#6b22a4] hover:bg-[#902ba9]"}`}
+      >
+        {loading ? (
+          <svg
+            className="animate-spin h-5 w-5 mx-auto text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
           >
-            Send Message
-          </button>
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8z"
+            ></path>
+          </svg>
+        ) : (
+          "Send Message"
+        )}
+      </button>
         </motion.form>
       </div>
     </section>

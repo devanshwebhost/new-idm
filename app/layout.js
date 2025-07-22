@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono, Raleway } from "next/font/google";
 import "./globals.css";
-import Footer from "@/component/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import FooterWrapper from "@/component/FooterWrapper";
 
 // Load fonts
 const geistSans = Geist({
@@ -64,7 +64,7 @@ export default function RootLayout({ children }) {
         style={{ fontFamily: "var(--font-raleway)" }}
       >
         {children}
-        <Footer />
+        <FooterWrapper/>
       </body>
     </html>
   );

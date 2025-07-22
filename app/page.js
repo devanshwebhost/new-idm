@@ -56,7 +56,7 @@ export default function HomePage() {
             onClick={() => setMenuOpen(!menuOpen)}
             className="rounded-xl shadow-lg hover:scale-105 transition"
           >
-            <img src="assets/logo.jpg" alt="Logo" className="w-[50px] h-[50px] rounded-md" />
+            <img src="assets/logo.jpg" alt="Logo" loading="lazy" className="w-[50px] h-[50px]  rounded-md" />
           </button>
 
           <AnimatePresence>

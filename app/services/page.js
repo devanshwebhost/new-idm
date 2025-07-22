@@ -46,6 +46,7 @@ export default function ServicesPage() {
             src="/assets/logo.jpg"
             alt="Logo"
             className="w-[50px] h-[50px] rounded-md"
+            loading="lazy"
           />
         </button>
 
