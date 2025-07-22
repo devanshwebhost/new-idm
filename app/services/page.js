@@ -9,19 +9,19 @@ const services = [
     title: "Advertisement Creation",
     desc: "From concept to screen, we craft ads that grab attention and convert.",
     video: "/assets/business.mp4",
-    poster: "/assets/advertisment.jpg",
+    poster: "/assets/advertisment.webp",
   },
   {
     title: "AIO for Social Media",
     desc: "Design, schedule, optimize — all your social content managed in one place.",
     video: "/assets/ai.mp4",
-    poster: "/assets/aio.png",
+    poster: "/assets/aio.webp",
   },
   {
     title: "Video Editing",
     desc: "Creative cuts, smooth transitions, story-driven edits tailored for your brand.",
     video: "/assets/editing-compressed.mp4",
-    poster: "/assets/editing-poster.jpg",
+    poster: "/assets/editing-poster.webp",
   },
   {
     title: "Production Services",
@@ -83,7 +83,7 @@ export default function ServicesPage() {
           muted
           loop
           playsInline
-          poster="/assets/service-poster.jpg"
+          poster="/assets/service-poster.webp"
           className="absolute w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-white/80 z-10" />

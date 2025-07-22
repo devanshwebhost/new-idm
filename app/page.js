@@ -40,7 +40,7 @@ export default function HomePage() {
             muted
             loop
             playsInline
-            poster='/assets/poster1.png'
+            poster='/assets/poster1.webp'
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
               index === current ? 'opacity-100' : 'opacity-0'
             }`}
@@ -67,7 +67,7 @@ export default function HomePage() {
                 exit={{ opacity: 0, y: -5 }}
                 transition={{ duration: 0.3 }}
                 className="absolute mt-3 bg-black rounded-xl p-4 shadow-xl space-y-2 w-[150px] z-40"
-              > <Link href="#services" className="block text-sm hover:text-[#6b22a4] text-[#6b22a4] transition font-semibold">Home</Link>
+              > <Link href="/" className="block text-sm hover:text-[#6b22a4] text-[#6b22a4] transition font-semibold">Home</Link>
                 <Link href="/services" className="block text-sm hover:text-[#6b22a4] text-white transition">Our Services</Link>
                 <Link href="/about" className="block text-sm hover:text-[#6b22a4] text-white transition">About Us</Link>
                 <Link href="/contact" className="block text-sm hover:text-[#6b22a4] text-white transition">Contact</Link>

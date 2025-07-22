@@ -55,7 +55,7 @@ export default function AboutPage() {
           autoPlay
           muted
           loop
-          poster="/assets/about.png"
+          poster="/assets/about.webp"
           className="absolute inset-0 w-full h-full object-cover brightness-50"
         />
         <div className="relative z-10 text-center px-4">

@@ -7,25 +7,25 @@ const services = [
     title: 'High-Impact Ad Campaigns',
     description: 'Design visually striking, ROI-driven ad campaigns tailored for every digital platform.',
     videoSrc: '/assets/business.mp4',
-    poster: '/assets/business.jpg',
+    poster: '/assets/business.webp',
   },
   {
     title: 'AI-Powered Social Media Management',
     description: 'Automate content creation, smart scheduling, and performance tracking — all driven by AI.',
     videoSrc: '/assets/ai.mp4',
-    poster: '/assets/aio.png',
+    poster: '/assets/aio.webp',
   },
   {
     title: 'Cinematic Video Production',
     description: 'Transform your ideas into compelling stories with pro-grade editing, motion graphics, and animation.',
     videoSrc: '/assets/header-2.mp4',
-    poster: '/assets/camera.jpg',
+    poster: '/assets/camera.webp',
   },
   {
     title: 'Strategic Content Planning',
     description: 'Craft custom content strategies that engage audiences and convert clicks into results.',
     videoSrc: '/assets/lightbg.mp4',
-    poster: '/assets/cube.jpg',
+    poster: '/assets/cube.webp',
   },
 ];
 
