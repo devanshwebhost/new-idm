@@ -1,0 +1,450 @@
+/* Macda Eye Follower Styles */
+.macda-container {
+    position: fixed;
+    right: 20px; /* Adjusted position */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 998; /* Below chatbot, above general content */
+    cursor: pointer; /* Change cursor to pointer for Macda container */
+    /* Remove pointer-events: none; here, as we want it clickable */
+}
+
+.eye {
+    position: relative;
+    width: 50px; /* Smaller size */
+    height: 50px; /* Smaller size */
+    background: radial-gradient(circle at center, #2b2b2b, #0c0c0c);
+    border-radius: 50%;
+    box-shadow: 0 0 12px #00f2ff88, inset 0 0 8px rgba(0,242,255,0.5); /* Adjusted shadow size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #00f2ff; /* Adjusted border size */
+    transition: transform 0.2s ease-in-out; /* Smooth scale transition */
+}
+
+.macda-container:hover .eye {
+    transform: scale(1.05); /* Slightly enlarge eye on hover */
+}
+
+.chatbot-widget {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 350px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    display: none; /* Hidden by default */
+    flex-direction: column;
+}
+/* General Body Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+#bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+/* Main Content Sections */
+main {
+    padding: 2rem;
+}
+
+section {
+    padding: 4rem 2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Services Section */
+.service-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+}
+
+/* Team Section */
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Contact Form */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+#contact-form input, #contact-form textarea {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#contact-form button {
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#contact-form button:hover {
+    background-color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 0.5rem;
+    text-decoration: none;
+}
+
+/* Chatbot Widget */
+#open-chatbot {
+    /* position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); */
+}
+
+.chatbot-widget {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 350px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    display: none; /* Hidden by default */
+    flex-direction: column;
+}
+
+.chatbot-header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+#close-chatbot {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.chatbot-body {
+    padding: 1rem;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.chatbot-message {
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    max-width: 80%;
+}
+
+.chatbot-message.ai {
+    background-color: #f1f1f1;
+    align-self: flex-start;
+}
+
+.chatbot-message.user {
+    background-color: #333;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.chatbot-footer {
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+}
+
+#chatbot-form {
+    display: flex;
+}
+
+#chatbot-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#chatbot-form button {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.chatbot-message {
+    margin: 10px;
+    padding: 12px 16px;
+    border-radius: 20px;
+    max-width: 80%;
+    animation: fadeIn 0.3s ease-in-out;
+    line-height: 1.4;
+}
+
+.chatbot-message.user {
+    background: #d1e7ff;
+    align-self: flex-end;
+    font-weight: 500;
+}
+
+.chatbot-message.ai {
+    background: #f1f1f1;
+    align-self: flex-start;
+}
+
+.chatbot-message.typing {
+    font-style: italic;
+    opacity: 0.6;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.quick-question-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.quick-question-container button {
+  padding: 6px 12px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.quick-question-container button:hover {
+  background-color: #ddd;
+}
+
+/* Add or update this in macda.css */
+.chatbot-body {
+    max-height: 300px; /* or whatever fits your design */
+    overflow-y: auto;
+    padding: 10px;
+}
+
+
+.chatbot-widget.open {
+    display: block !important;
+    opacity: 1 !important;
+    z-index: 9999 !important;
+}
+
+.pupil {
+    width: 20px; /* Smaller pupil */
+    height: 20px; /* Smaller pupil */
+    background: radial-gradient(circle, #00d8ff, #005577);
+    border-radius: 50%;
+    transition: transform 0.1s linear;
+    position: relative;
+}
+
+.pupil::before { /* Small highlight on the pupil */
+    content: '';
+    position: absolute;
+    top: 4px; /* Adjusted highlight position */
+    left: 10px; /* Adjusted highlight position */
+    width: 7px; /* Smaller highlight */
+    height: 7px; /* Smaller highlight */
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+}
+
+.speech-bubble {
+    position: absolute;
+    bottom: 80px; /* Adjusted position above smaller eye */
+    left: -150%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    color: #000;
+    padding: 8px 14px; /* Smaller padding */
+    border-radius: 20px; /* Smaller border-radius */
+    font-family: sans-serif;
+    font-size: 14px; /* Smaller font size */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    opacity: 0;
+    pointer-events: none; /* Default to none, enabled via JS for clickable type */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+}
+
+.speech-bubble.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.speech-bubble.clickable {
+    pointer-events: auto; /* Allow clicks when it contains an action */
+    cursor: pointer;
+    background-color: #e0f7fa; /* Light blue background for clickable bubble */
+    border: 1px solid #00bcd4;
+    color: #00796b;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* Slightly smaller gap */
+}
+
+.speech-bubble.clickable:hover {
+    background-color: #b2ebf2;
+    transform: translateX(-50%) translateY(-8px);
+}
+
+.speech-bubble.clickable .chat-icon {
+    font-size: 1.1em; /* Smaller icon size */
+}
+
+
+/* Responsive adjustments for Macda */
+@media (max-width: 768px) {
+    .macda-container {
+        right: 15px;
+        top: auto;
+        bottom: 30px; /* Place it low, away from other content */
+        transform: none;
+    }
+    .eye {
+        width: 80px; /* Even smaller for mobile */
+        height: 80px;
+    }
+    .pupil {
+        width: 25px;
+        height: 25px;
+    }
+    .speech-bubble {
+        bottom: 90px; /* Adjust bubble position */
+        font-size: 12px;
+        padding: 6px 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .speech-bubble.show {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
