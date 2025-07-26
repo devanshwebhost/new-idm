@@ -24,8 +24,8 @@ const services = [
   {
     title: 'Strategic Content Planning',
     description: 'Craft custom content strategies that engage audiences and convert clicks into results.',
-    videoSrc: '/assets/lightbg.mp4',
-    poster: '/assets/cube.webp',
+    videoSrc: '/assets/lightbg-compressed.mp4',
+    poster: '/assets/cubes.webp',
   },
 ];
 

@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // import { motion } from "framer-motion";
 import { motion, AnimatePresence } from "framer-motion";
 // import { useState } from "react";
@@ -31,19 +34,20 @@ const handleSubmit = async (e) => {
 
     const data = await res.json();
 
-    if (res.ok) {
-      alert(data.message || "Message sent!");
-      setForm({ name: "", email: "", message: "" });
-    } else {
-      alert(data.message || "Failed to send message.");
-    }
-  } catch (error) {
-    console.error("Submission error:", error);
-    alert("Something went wrong. Please try again later.");
-  } finally {
-      setLoading(false); // stop loader
-    }
-};
+  if (res.ok) {
+    toast.success(data.message || "Message sent!");
+    setForm({ name: "", email: "", message: "" });
+  } else {
+    toast.error(data.message || "Failed to send message.");
+  }
+} catch (error) {
+  console.error("Submission error:", error);
+  toast.error("Something went wrong. Please try again later.");
+} finally {
+  setLoading(false); // stop loader
+}
+}
+
 
 
 
@@ -57,7 +61,7 @@ const handleSubmit = async (e) => {
           className="rounded-xl shadow-lg hover:scale-105 transition bg-black"
         >
           <img
-            src="/assets/logo.jpg"
+            src="/assets/logo.webp"
             alt="Logo"
             className="w-[50px] h-[50px] rounded-md"
             loading="lazy"
@@ -101,6 +105,9 @@ const handleSubmit = async (e) => {
           <p className="text-gray-600">
             Whether you have a question or a project in mind, we’d love to hear from you!
           </p>
+
+          <ToastContainer position="top-right" autoClose={3000} />
+
 
           <div className="space-y-4">
             <div className="flex items-center gap-4">

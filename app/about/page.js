@@ -17,7 +17,7 @@ export default function AboutPage() {
           className="rounded-xl shadow-lg hover:scale-105 transition bg-black"
         >
           <img
-            src="/assets/logo.jpg"
+            src="/assets/logo.webp"
             alt="Logo"
             className="w-[50px] h-[50px] rounded-md"
             loading="lazy"
