@@ -89,6 +89,9 @@ const handleSubmit = async (e) => {
               <Link href="/contact" className="block text-sm text-[#6b22a4] hover:text-[#6b22a4] transition font-semibold">
                 Contact
               </Link>
+                <Link href="/portfolio" className="block text-sm text-white hover:text-[#6b22a4] transition">
+                Portfolio
+              </Link>
             </motion.div>
           )}
         </AnimatePresence>

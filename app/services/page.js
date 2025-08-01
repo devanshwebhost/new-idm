@@ -71,6 +71,9 @@ export default function ServicesPage() {
               <Link href="/contact" className="block text-sm text-white hover:text-[#6b22a4] transition">
                 Contact
               </Link>
+              <Link href="/portfolio" className="block text-sm text-white hover:text-[#6b22a4] transition">
+                Portfolio
+              </Link>
             </motion.div>
           )}
         </AnimatePresence>

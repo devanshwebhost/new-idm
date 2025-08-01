@@ -71,6 +71,9 @@ export default function HomePage() {
                 <Link href="/services" className="block text-sm hover:text-[#6b22a4] text-white transition">Our Services</Link>
                 <Link href="/about" className="block text-sm hover:text-[#6b22a4] text-white transition">About Us</Link>
                 <Link href="/contact" className="block text-sm hover:text-[#6b22a4] text-white transition">Contact</Link>
+                <Link href="/portfolio" className="block text-sm text-white hover:text-[#6b22a4] transition">
+                Portfolio
+              </Link>
               </motion.div>
             )}
           </AnimatePresence>
