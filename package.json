@@ -11,6 +11,8 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@next/bundle-analyzer": "^15.4.1",
+    "@react-three/drei": "^10.6.1",
+    "@react-three/fiber": "^9.3.0",
     "framer-motion": "^12.23.12",
     "fuse.js": "^7.1.0",
     "gl-matrix": "^3.4.3",
@@ -22,8 +24,10 @@
     "react": "19.1.0",
     "react-bits": "^1.0.5",
     "react-dom": "19.1.0",
+    "react-fast-marquee": "^1.6.5",
     "react-shadow": "^20.6.0",
-    "react-toastify": "^11.0.5"
+    "react-toastify": "^11.0.5",
+    "three": "^0.179.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
