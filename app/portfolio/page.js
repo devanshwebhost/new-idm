@@ -128,7 +128,7 @@ const projects = [
   {
     id: 3,
     title: 'Color Grading',
-    video: '/assets/Color Grading.mp4',
+    video: '/assets/colorGrading.mp4',
     type: 'Production Content'
   }
 ];
