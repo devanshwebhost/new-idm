@@ -6,13 +6,13 @@ const services = [
   {
     title: 'High-Impact Ad Campaigns',
     description: 'Design visually striking, ROI-driven ad campaigns tailored for every digital platform.',
-    videoSrc: '/assets/business.mp4',
+    videoSrc: '/assets/ad-video.mp4',
     poster: '/assets/business.webp',
   },
   {
     title: 'AI-Powered Social Media Management',
     description: 'Automate content creation, smart scheduling, and performance tracking — all driven by AI.',
-    videoSrc: '/assets/ai.mp4',
+    videoSrc: '/assets/ai-video.mp4',
     poster: '/assets/aio.webp',
   },
   {

@@ -16,7 +16,6 @@ useEffect(() => {
   const totalItems = 28;
   const defaultItems = Array.from({ length: totalItems }, (_, index) => `Item ${index + 1}`);
   const combinedItems = items.length > 0 ? items.slice(0, totalItems) : defaultItems;
-
   useEffect(() => {
     gsap.ticker.lagSmoothing(0);
 

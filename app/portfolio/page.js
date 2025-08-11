@@ -122,7 +122,7 @@ const projects = [
   {
     id: 2,
     title: 'Motion Graphics',
-    video: '/assets/business.mp4',
+    video: '/assets/portfolio-ad.mp4',
     type: 'Graphic'
   },
   {

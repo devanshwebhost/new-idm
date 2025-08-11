@@ -117,6 +117,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.6, delay: i * 0.2 }}
             className="bg-white border rounded-xl overflow-hidden shadow-md group"
           >
+            <Link href="/portfolio" className="block text-sm text-white hover:text-[#6b22a4] transition">
             <div className="relative w-full h-60 overflow-hidden">
               <video
                 src={s.video}
@@ -129,6 +130,7 @@ export default function ServicesPage() {
               />
               <div className="absolute inset-0 bg-black/40" />
             </div>
+              </Link>
             <div className="p-6">
               <h3 className="text-2xl font-bold text-black mb-2">{s.title}</h3>
               <p className="text-gray-700">{s.desc}</p>
