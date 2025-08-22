@@ -3,6 +3,7 @@ import "./globals.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import FooterWrapper from "@/component/FooterWrapper";
 import JsonLd from '@/component/JsonLd';
+import ChatWidget from "@/component/Agent";
 
 // Load fonts
 const geistSans = Geist({
@@ -71,6 +72,7 @@ export default function RootLayout({ children }) {
         style={{ fontFamily: "var(--font-raleway)" }}
       >
         {children}
+        <ChatWidget/>
         <FooterWrapper/>
       </body>
     </html>

@@ -25,6 +25,7 @@
     "react-bits": "^1.0.5",
     "react-dom": "19.1.0",
     "react-fast-marquee": "^1.6.5",
+    "react-markdown": "^10.1.0",
     "react-shadow": "^20.6.0",
     "react-toastify": "^11.0.5",
     "three": "^0.179.1"
