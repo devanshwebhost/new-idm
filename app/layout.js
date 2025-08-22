@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Raleway } from "next/font/google";
 import "./globals.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import FooterWrapper from "@/component/FooterWrapper";
+import JsonLd from '@/component/JsonLd';
 
 // Load fonts
 const geistSans = Geist({
@@ -28,15 +29,18 @@ export const metadata = {
   icons: {
     icon: "/assets/favicon.svg",
   },
+   verification: {
+    google: '-hS6vzUkly_Wr67STTKVjN6rRUvz-tVDSzaRHfJjkDo',
+  },
   openGraph: {
     title: "Indocs Media | Digital Solutions for Modern Brands",
     description:
       "Indocs Media is a creative digital agency offering UI/UX design, Webflow development, video editing, motion ads, and branding.",
-    url: "https://new-idm.vercel.app/",
+    url: "https://indocsmedia.onrender.com/",
     siteName: "Indocs Media",
     images: [
       {
-        url: "https://new-idm.vercel.app/assets/logo.jpg",
+        url: "https://indocsmedia.onrender.com/assets/logo.jpg",
         width: 1200,
         height: 630,
         alt: "Indocs Media Logo",
@@ -49,7 +53,7 @@ export const metadata = {
     title: "Indocs Media | Digital Solutions for Modern Brands",
     description:
       "Indocs Media is a creative digital agency offering UI/UX design, Webflow development, video editing, motion ads, and branding.",
-    images: ["https://new-idm.vercel.app/assets/logo.jpg"],
+    images: ["https://indocsmedia.onrender.com/assets/logo.jpg"],
   },
 };
 
@@ -59,6 +63,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable}`}
     >
+      <head>
+        <JsonLd />
+      </head>
       <body
         className="antialiased"
         style={{ fontFamily: "var(--font-raleway)" }}
