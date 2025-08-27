@@ -119,12 +119,12 @@ export default function AboutPage() {
       },
       {
         name: "Mithilesh Shende",
-        role: "Co-Founder",
+        role: "Founder",
         subrole: "AI Research & Development",
       },
       {
         name: "Anshu Yaduvanshi",
-        role: "Co-Founder",
+        role: "Founder",
         subrole: "Video Editing & Production",
       },
       {
