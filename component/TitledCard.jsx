@@ -11,10 +11,10 @@ export default function TiltedCard({
   imageSrc,
   altText = "Tilted card image",
   captionText = "",
-  containerHeight = "300px",
+  containerHeight = "",
   containerWidth = "100%",
-  imageHeight = "300px",
-  imageWidth = "300px",
+  imageHeight = "",
+  imageWidth = "",
   scaleOnHover = 1.1,
   rotateAmplitude = 14,
   showMobileWarning = true,
@@ -39,20 +39,15 @@ export default function TiltedCard({
 
   function handleMouse(e) {
     if (!ref.current) return;
-
     const rect = ref.current.getBoundingClientRect();
     const offsetX = e.clientX - rect.left - rect.width / 2;
     const offsetY = e.clientY - rect.top - rect.height / 2;
-
     const rotationX = (offsetY / (rect.height / 2)) * -rotateAmplitude;
     const rotationY = (offsetX / (rect.width / 2)) * rotateAmplitude;
-
     rotateX.set(rotationX);
     rotateY.set(rotationY);
-
     x.set(e.clientX - rect.left);
     y.set(e.clientY - rect.top);
-
     const velocityY = offsetY - lastY;
     rotateFigcaption.set(-velocityY * 0.6);
     setLastY(offsetY);
@@ -85,7 +80,7 @@ export default function TiltedCard({
     >
       {showMobileWarning && (
         <div className="absolute top-4 text-center text-sm block sm:hidden">
-          This effect is not optimized for mobile. Check on desktop.
+          {/* This effect is not optimized for mobile. Check on desktop. */}
         </div>
       )}
 
@@ -99,9 +94,12 @@ export default function TiltedCard({
           scale,
         }}
       >
-        <motion.img
+        <motion.video
           src={imageSrc}
-          alt={altText}
+          autoPlay
+          loop
+          muted
+          // ✅ CONTROLS REMOVED FROM HERE
           className="absolute top-0 left-0 object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
           style={{
             width: imageWidth,

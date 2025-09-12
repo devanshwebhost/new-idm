@@ -17,6 +17,7 @@ import RotatingText from '@/component/Rotating';
 import { Folder } from 'lucide-react';
 import GridMotion from '@/component/GridMotion';
 import QuickGallery from '@/component/Q';
+import InsightsSection from '@/component/InsightsSection';
 
 
 
@@ -182,9 +183,9 @@ const projects = [
         
 
       <div className="text-center md:mt-0 mt-10">
-        <h1 className="text-xl text-gray-100 bg-gray-800 p-4 rounded text-center">
+        {/* <h1 className="text-xl text-gray-100 bg-gray-800 p-4 rounded text-center">
   🚧 We're working on this page. It'll be Completed soon!
-</h1>
+</h1> */}
 
 <h1 className="text-4xl font-bold text-white md:text-6xl pt-10">Welcome to our Portfolio</h1>
 <p
@@ -212,23 +213,10 @@ const projects = [
 
 <div className='flex justify-center mt-10'>
 <TiltedCard
-  imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
-  altText=""
-  captionText=""
-  containerHeight="300px"
-  containerWidth="300px"
-  imageHeight="300px"
-  imageWidth="300px"
-  rotateAmplitude={12}
-  scaleOnHover={1.2}
-  showMobileWarning={false}
-  showTooltip={true}
-  displayOverlayContent={true}
-  overlayContent={
-    <p className="tilted-card-demo-text">
-      
-    </p>
-  }
+  imageSrc="https://indocsmedia.onrender.com/assets/ad-video.mp4"
+  imageWidth="80vw"  // Example width (16 * 30)
+  imageHeight="270px" // Example height (9 * 30)
+  // ... other props
 />
 </div>
 
@@ -281,16 +269,17 @@ const projects = [
   </div>
 </section>
 
+<InsightsSection/>
   
 {/* // note: you'll need to make sure the parent container of this component is sized properly */}
 
-<div className="bg-black pt-10">
+{/* <div className="bg-black pt-10">
   <h2 className="md:text-5xl text-white font-bold text-3xl text-center mb-8">
     Quick Gallery
   </h2>
   <GridMotion items={items} />
   <QuickGallery items={itemz} />
-</div>
+</div> */}
 
 
 <div className="relative w-full bg-black overflow-hidden min-h-[350px]">

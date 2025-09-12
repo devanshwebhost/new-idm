@@ -24,7 +24,7 @@ export default function ChatWidget() {
     if (isOpen && messages.length === 0) {
       const greeting = {
         role: "assistant",
-        text: "Hi there 👋, my self **Macda**! I am your assistant on behalf of Indocs Media. How can I help you today?",
+        text: "Hi there 👋, my self **Macda**! I am your assistant on behalf of Indocs Media. How can I help you today? (In starting conversation macda should be take a mint to start server)",
       };
       setMessages([greeting]);
     }
@@ -44,7 +44,7 @@ export default function ChatWidget() {
     setMessages((prev) => [...prev, newMessage]);
     setInput("");
 
-    const res = await fetch("https://macdabackend.onrender.com/chat", {
+    const res = await fetch("http://localhost:5000/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: input, userKey }),
