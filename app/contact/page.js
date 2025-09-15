@@ -19,12 +19,15 @@ export default function ContactPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+// ... (imports and state declarations remain the same)
+
 const handleSubmit = async (e) => {
   e.preventDefault();
-   setLoading(true); // start loader
+  setLoading(true);
 
   try {
-    const res = await fetch("https://idm-form-backend.onrender.com/send-email", {
+    // CHANGE THIS URL to your internal API route
+    const res = await fetch("/api/send-email", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,19 +37,21 @@ const handleSubmit = async (e) => {
 
     const data = await res.json();
 
-  if (res.ok) {
-    toast.success(data.message || "Message sent!");
-    setForm({ name: "", email: "", message: "" });
-  } else {
-    toast.error(data.message || "Failed to send message.");
+    if (res.ok) {
+      toast.success(data.message || "Message sent!");
+      setForm({ name: "", email: "", message: "" });
+    } else {
+      toast.error(data.message || "Failed to send message.");
+    }
+  } catch (error) {
+    console.error("Submission error:", error);
+    toast.error("Something went wrong. Please try again later.");
+  } finally {
+    setLoading(false);
   }
-} catch (error) {
-  console.error("Submission error:", error);
-  toast.error("Something went wrong. Please try again later.");
-} finally {
-  setLoading(false); // stop loader
-}
-}
+};
+
+// ... (the rest of your JSX component remains the same)
 
 
 
