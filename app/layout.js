@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono, Raleway } from "next/font/google";
-import Script from "next/script"; // Import the Script component
+import { GoogleAnalytics } from "@next/third-parties/google"; // Import the Google Analytics component
 import "./globals.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import FooterWrapper from "@/component/FooterWrapper";
@@ -71,25 +71,9 @@ export default function RootLayout({ children }) {
         <ChatWidget/>
         <FooterWrapper/>
       </body>
-      {/* The Script component should be placed outside of the <body>
-        to be injected into the <head> of the document for optimal performance.
-      */}
-      <Script 
-        async 
-        src="https://www.googletagmanager.com/gtag/js?id=G-ZMWNCN0RBE" 
-        strategy="afterInteractive" 
-      />
-      <Script 
-        id="google-analytics"
-        strategy="afterInteractive"
-      >
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-ZMWNCN0RBE');
-        `}
-      </Script>
+      
+      {/* This component correctly loads the gtag script and handles page views */}
+      <GoogleAnalytics gaId="G-ZMWNCN0RBE" />
     </html>
   );
 }
