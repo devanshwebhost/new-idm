@@ -66,7 +66,9 @@ export default function RootLayout({ children }) {
     >
       <head>
         <JsonLd />
+        
       </head>
+      
       <body
         className="antialiased"
         style={{ fontFamily: "var(--font-raleway)" }}
@@ -75,6 +77,22 @@ export default function RootLayout({ children }) {
         <ChatWidget/>
         <FooterWrapper/>
       </body>
+      <Script 
+        async 
+        src="https://www.googletagmanager.com/gtag/js?id=G-ZMWNCN0RBE" 
+        strategy="afterInteractive" 
+      />
+      <Script 
+        id="google-analytics"
+        strategy="afterInteractive"
+      >
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-ZMWNCN0RBE');
+        `}
+      </Script>
     </html>
   );
 }
