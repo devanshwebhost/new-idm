@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono, Raleway } from "next/font/google";
+import Script from "next/script"; // Import the Script component
 import "./globals.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import FooterWrapper from "@/component/FooterWrapper";
@@ -30,7 +31,7 @@ export const metadata = {
   icons: {
     icon: "/assets/favicon.svg",
   },
-   verification: {
+  verification: {
     google: '-hS6vzUkly_Wr67STTKVjN6rRUvz-tVDSzaRHfJjkDo',
   },
   openGraph: {
@@ -64,19 +65,15 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable}`}
     >
-      <head>
+      <body>
         <JsonLd />
-        
-      </head>
-      
-      <body
-        className="antialiased"
-        style={{ fontFamily: "var(--font-raleway)" }}
-      >
         {children}
         <ChatWidget/>
         <FooterWrapper/>
       </body>
+      {/* The Script component should be placed outside of the <body>
+        to be injected into the <head> of the document for optimal performance.
+      */}
       <Script 
         async 
         src="https://www.googletagmanager.com/gtag/js?id=G-ZMWNCN0RBE" 
