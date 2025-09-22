@@ -4,7 +4,7 @@ import "./globals.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import FooterWrapper from "@/component/FooterWrapper";
 import JsonLd from '@/component/JsonLd';
-import ChatWidget from "@/component/Agent";
+// import ChatWidget from "@/component/Agent";
 
 // Load fonts
 const geistSans = Geist({
@@ -32,17 +32,17 @@ export const metadata = {
     icon: "/assets/favicon.svg",
   },
   verification: {
-    google: '-hS6vzUkly_Wr67STTKVjN6rRUvz-tVDSzaRHfJjkDo',
+    google: 'bmKNUPDQQDedvtwaI9MwDsLVBwHQFcS9Q6gFmy26lTY',
   },
   openGraph: {
     title: "Indocs Media | Digital Solutions for Modern Brands",
     description:
       "Indocs Media is a creative digital agency offering UI/UX design, Webflow development, video editing, motion ads, and branding.",
-    url: "https://indocsmedia.onrender.com/",
+    url: "https://indocsmedia.vercel.app",
     siteName: "Indocs Media",
     images: [
       {
-        url: "https://indocsmedia.onrender.com/assets/logo.jpg",
+        url: "https://indocsmedia.vercel.app/assets/logo.jpg",
         width: 1200,
         height: 630,
         alt: "Indocs Media Logo",
@@ -55,7 +55,7 @@ export const metadata = {
     title: "Indocs Media | Digital Solutions for Modern Brands",
     description:
       "Indocs Media is a creative digital agency offering UI/UX design, Webflow development, video editing, motion ads, and branding.",
-    images: ["https://indocsmedia.onrender.com/assets/logo.jpg"],
+    images: ["https://indocsmedia.vercel.app/assets/logo.jpg"],
   },
 };
 
@@ -68,7 +68,7 @@ export default function RootLayout({ children }) {
       <body>
         <JsonLd />
         {children}
-        <ChatWidget/>
+        
         <FooterWrapper/>
       </body>
       
