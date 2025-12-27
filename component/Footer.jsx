@@ -60,7 +60,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-12 text-center text-sm text-gray-500">
-        &copy; {new Date().getFullYear()} Indocs Media. All rights reserved.
+        <p>© 2024 Teenera Pvt. Ltd. All rights reserved.</p>
       </div>
     </footer>
   );
