@@ -2,110 +2,100 @@
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ServicesSection from '@/component/ServicesSection';
 import Link from 'next/link';
+import Menu from '@/component/Menu'; // Naya component import karein
+import CoreOfferingsSection from '@/component/ServicesSection';
 
 const videoList = [
-  '/assets/light-compressed.mp4',
-  '/assets/ai.mp4',
+  // '/assets/light-compressed.mp4',
+  // '/assets/ai.mp4',
   '/assets/header-2.mp4',
-  '/assets/lightbg-compressed.mp4'
+  // '/assets/lightbg-compressed.mp4'
 ];
 
 export default function HomePage() {
   const [current, setCurrent] = useState(0);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % videoList.length);
-    }, 10000); // Change every 10s
+    }, 10000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <main className="min-h-screen w-full bg-white text-gray-900">
-    
-    
+    <main className="min-h-screen w-full bg-white text-gray-900 selection:bg-[#902ba9] selection:text-white">
+      
+      {/* Global Menu Component */}
+      <Menu />
 
       {/* ===== Hero Section ===== */}
-      <section className="relative h-[90vh] w-full flex items-center justify-center overflow-hidden">
-
-        {/* Background Video Carousel */}
-        {videoList.map((src, index) => (
-          <video
-            key={index}
-            src={src}
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster='/assets/poster1.webp'
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-              index === current ? 'opacity-100' : 'opacity-0'
-            }`}
-          />
-        ))}
-
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/50 z-10" />
-
-        {/* Logo & Animated Menu */}
-        <div className="fixed top-6 left-4 z-30">
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="rounded-xl shadow-lg hover:scale-105 transition"
-          >
-            <img src="assets/logo.webp" alt="Logo" loading="lazy" className="w-[50px] h-[50px]  rounded-md" />
-          </button>
-
-          <AnimatePresence>
-            {menuOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -5 }}
-                transition={{ duration: 0.3 }}
-                className="absolute mt-3 bg-black rounded-xl p-4 shadow-xl space-y-2 w-[150px] z-40"
-              > <Link href="/" className="block text-sm hover:text-[#6b22a4] text-[#6b22a4] transition font-semibold">Home</Link>
-                <Link href="/services" className="block text-sm hover:text-[#6b22a4] text-white transition">Our Services</Link>
-                <Link href="/about" className="block text-sm hover:text-[#6b22a4] text-white transition">About Us</Link>
-                <Link href="/contact" className="block text-sm hover:text-[#6b22a4] text-white transition">Contact</Link>
-                <Link href="/portfolio" className="block text-sm text-white hover:text-[#6b22a4] transition">
-                Portfolio
-              </Link>
-              </motion.div>
-            )}
+      <section className="relative h-[95vh] w-full flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <AnimatePresence mode="wait">
+            <motion.video
+              key={videoList[current]}
+              src={videoList[current]}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5 }}
+              autoPlay muted loop playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           </AnimatePresence>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 z-10" />
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-20 text-center text-white px-4 max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Empowering Digital Brilliance</h1>
-          <p className="text-lg md:text-xl font-light mb-6">
-            We craft experiences across Web, Media, and Strategy with innovation at heart.
-          </p>
-          <Link href="/services" className="px-6 py-3 bg-[#902ba9] hover:bg-[#6b22a4] rounded-full font-semibold">
-            Explore Our Services
-          </Link>
-        </div>
-      </section>
-
-      {/* ===== Services Section ===== */}
-      <ServicesSection />
-
-      {/* ===== About CTA Section ===== */}
-      <section id="about" className="py-20 px-6 bg-white">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">We Are Indocs Media</h2>
-          <p className="text-lg text-gray-700 mb-6">
-            A fusion of creativity, technology, and strategy — ready to elevate your brand experience.
-          </p>
-          <Link href="/about" className="px-6 py-3 bg-black text-white rounded-full font-medium">
-            More About Us
-          </Link>
+        <div className="relative z-20 text-center text-white px-4 max-w-4xl">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <h1 className="text-5xl md:text-8xl font-black mb-6 tracking-tighter leading-[0.9]">
+              FROM <span className="text-[#902ba9]">SCRIPT</span> <br className="md:hidden" />
+              TO <span className="text-[#902ba9]">SCREEN</span>
+            </h1>
+            <p className="text-lg md:text-2xl font-light mb-10 text-gray-200 max-w-2xl mx-auto">
+              Crafting high-impact stories through professional production and visual excellence.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+              <Link href="/services" className="px-8 py-4 bg-[#902ba9] rounded-full font-bold text-lg hover:scale-105 transition-transform">
+                Explore Services
+              </Link>
+              <Link href="/portfolio" className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full font-bold text-lg hover:bg-white/20 transition-all">
+                View Showreel
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
+
+      {/* <ServicesSection /> */}
+      <CoreOfferingsSection/>
+
+      {/* ===== About CTA Section (Indocs Media Branding) ===== */}
+      <section id="about" className="py-32 px-6 bg-white relative overflow-hidden">
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="text-[#902ba9] font-bold tracking-widest text-sm uppercase mb-4 block"
+          >
+            Est. 2024
+          </motion.span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight">We Are Indocs Media</h2>
+          <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed font-light">
+            Your Vision, Our Lens. Professional Production & Cinematic Post-Production tailored for the digital age.
+          </p>
+          <Link href="/about" className="inline-flex items-center gap-2 px-10 py-4 bg-black text-white rounded-full font-bold hover:bg-gray-800 transition-all hover:gap-4">
+            More About Us <span>→</span>
+          </Link>
+        </div>
+        
+        {/* Decorative background element */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-black text-gray-50 -z-0 select-none pointer-events-none">
+          INDOCS
+        </div>
+      </section>
+    
     </main>
   );
 }

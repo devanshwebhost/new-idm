@@ -7,7 +7,7 @@ export default function Footer() {
         <div>
           <h2 className="text-xl font-bold mb-3">Indocs Media</h2>
           <p className="text-sm text-gray-600">
-            Empowering Digital Brilliance with strategies, stories, and stunning visuals.
+            Defining Your Brand with Professional Shoots and Bold Storytelling.
           </p>
         </div>
 
@@ -15,12 +15,14 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-3">What we can do?</h3>
           <ul className="space-y-2 text-sm text-gray-600">
-            <li className="text-black">Advertising</li>
-            <li className="text-black">Social Media AIO</li>
-            <li className="text-black">Video Editing</li>
-            <li className="text-black">Production</li>
-            <li className="text-black">Simple but engaging website</li>
-          </ul>
+  <li className="text-black font-medium">Pre-Production & Scripting</li>
+  <li className="text-black font-medium">Video Direction</li>
+  <li className="text-black font-medium">YouTube & Podcast Shoots</li>
+  <li className="text-black font-medium">Ad Films (Shoot & Edit)</li>
+  <li className="text-black font-medium">Post-Production & Professional Editing</li>
+  <li className="text-black font-medium">Cinematic Color Grading</li>
+  <li className="text-black font-medium">End-to-End Content Creation</li>
+</ul>
         </div>
 
         {/* Quick Links */}
@@ -38,12 +40,12 @@ export default function Footer() {
         {/* Contact */}
         <div>
           <h3 className="text-lg font-semibold mb-3">Get In Touch</h3>
-          <a href="mailto:indocsmedia@gmail.com" className="text-sm text-gray-600 mb-2">Email: indocsmedia@gmail.com</a>
+          <a href="mailto:indocsmedia@gmail.com" className="text-sm text-gray-600 mb-2">indocsmedia@gmail.com</a>
           <p className="text-sm text-gray-600 mb-2">
-            Phones: <br />
-            <a href="tel:9310895844" className="hover:text-black block">9310895844</a>
-            <a href="tel:9910892766" className="hover:text-black block">9910892766</a>
-            <a href="tel:7972929641" className="hover:text-black block">7972929641</a>
+            {/* Whatsapp Only -: <br /> */}
+            <a href="https://wa.me/9310895844" className="hover:text-black block">9310895844</a>
+            <a href="https://wa.me/9910892766" className="hover:text-black block">9910892766</a>
+            <a href="https://wa.me/7972929641" className="hover:text-black block">7972929641</a>
           </p>
           <div className="flex space-x-4 mt-3 text-xl">
             <a href="https://wa.me/9999513446" className="text-gray-600 hover:text-black" target="_blank">
@@ -60,7 +62,8 @@ export default function Footer() {
       </div>
 
       <div className="mt-12 text-center text-sm text-gray-500">
-        <p>© 2024 Teenera Pvt. Ltd. All rights reserved.</p>
+        {/* <p>© 2024 Teenera Pvt. Ltd. All rights reserved.</p> */}
+        <p>© 2024 Indocs Media All rights reserved.</p>
       </div>
     </footer>
   );

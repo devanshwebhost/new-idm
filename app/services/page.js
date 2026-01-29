@@ -1,164 +1,176 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import Link from "next/link";
+import Menu from '@/component/Menu';
 
 const services = [
   {
-    title: "Advertisement Creation",
-    desc: "From concept to screen, we craft ads that grab attention and convert.",
-    video: "/assets/business.mp4",
-    poster: "/assets/advertisment.webp",
+    id: "ads-shoots",
+    title: "Ads Shoots & Production",
+    desc: "From concept to screen, we craft high-impact commercial advertisements with professional production quality that grab attention and convert.",
+    video: "https://res.cloudinary.com/dh90u2k3l/video/upload/v1769688557/IMG_0233_web_z8nsss.mp4",
+    poster: "/assets/logo.webp",
   },
   {
-    title: "AIO for Social Media",
-    desc: "Design, schedule, optimize — all your social content managed in one place.",
-    video: "/assets/ai.mp4",
-    poster: "/assets/aio.webp",
-  },
-  {
-    title: "Video Editing",
-    desc: "Creative cuts, smooth transitions, story-driven edits tailored for your brand.",
+    id: "editing",
+    title: "Video Direction & Editing",
+    desc: "Expert on-set direction paired with cinematic, story-driven editing to transform your creative vision into polished, powerful visuals.",
     video: "/assets/editing-compressed.mp4",
     poster: "/assets/editing-poster.webp",
   },
   {
-    title: "Production Services",
-    desc: "From shoot to screen — we bring your ideas to life with top-tier production.",
+    id: "production",
+    title: "Pre & Post Production",
+    desc: "Expert on-set direction combined with seamless, story-driven editing to ensure your creative vision is captured and polished perfectly.",
     video: "/assets/header-2.mp4",
     poster: "/assets/production.jpg",
+  },
+  {
+    id: "yt-shoots",
+    title: "Yt video Shoots",
+    desc: "Specialized high-quality shoots for YouTube creators and podcasts, optimized for maximum audience engagement and retention — with a chill, fun on-set vibe that keeps creators relaxed and content flowing naturally.",
+    video: "https://res.cloudinary.com/dh90u2k3l/video/upload/v1769689870/IMG_0183_web_rtsrrj.mp4",
+    poster: "/assets/logo.webp",
   },
 ];
 
 export default function ServicesPage() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Scroll transitions for the "Blend" effect
+  const videoScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
+  const videoOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
 
   return (
-    <div className="bg-white text-black relative min-h-screen">
-      {/* Logo & Menu */}
-      <div className="fixed top-6 left-4 z-30">
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="rounded-xl shadow-lg hover:scale-105 transition bg-black"
-        >
-          <img
-            src="/assets/logo.webp"
-            alt="Logo"
-            className="w-[50px] h-[50px] rounded-md"
-            loading="lazy"
-          />
-        </button>
+    <div ref={containerRef} className="bg-white text-black relative min-h-screen selection:bg-[#902ba9] selection:text-white">
+      
+      <Menu />
 
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -5 }}
-              transition={{ duration: 0.3 }}
-              className="absolute mt-3 bg-black rounded-xl p-4 shadow-xl space-y-2 w-[160px] border"
-            >
-              <Link href="/" className="block text-sm text-white hover:text-[#6b22a4] transition">
-                Home
-              </Link>
-              <Link href="/services" className="block text-sm text-[#6b22a4] font-semibold">
-                Our Services
-              </Link>
-              <Link href="/about" className="block text-sm text-white hover:text-[#6b22a4] transition">
-                About Us
-              </Link>
-              <Link href="/contact" className="block text-sm text-white hover:text-[#6b22a4] transition">
-                Contact
-              </Link>
-              <Link href="/portfolio" className="block text-sm text-white hover:text-[#6b22a4] transition">
-                Portfolio
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-
-      {/* Hero Section */}
-      <section className="relative h-[80vh] w-full overflow-hidden flex items-center justify-center">
-        <video
+      {/* ===== Cinematic Hero Section with Blend Effect ===== */}
+      <section className="relative h-[85vh] w-full overflow-hidden flex items-center justify-center bg-black">
+        <motion.video
+          style={{ scale: videoScale, opacity: videoOpacity }}
           src="/assets/service-better.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
+          autoPlay muted loop playsInline
           poster="/assets/service-poster.webp"
           className="absolute w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-white/80 z-10" />
+        
+        {/* Complex Gradient Overlay for the Blend */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/70 via-transparent to-white" />
+        
+        {/* Bottom Feathered Edge (Specifically for the Blend) */}
+        <div className="absolute bottom-0 left-0 w-full h-64 z-15 bg-gradient-to-t from-white via-white/50 to-transparent" />
+        
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          style={{ y: contentY }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="z-20 text-center relative px-4"
+          transition={{ duration: 0.8 }}
+          className="z-20 text-center relative px-4 max-w-4xl"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Creative Services That Speak Volumes
+          <span className="text-[#902ba9] font-bold tracking-[0.3em] text-sm uppercase mb-4 block drop-shadow-lg">
+            Our Expertise
+          </span>
+          <h1 className="text-5xl md:text-8xl font-black mb-6 text-white tracking-tighter leading-tight drop-shadow-2xl">
+            CREATIVE <span className="text-[#902ba9]">SERVICES</span>
           </h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Video-led storytelling, bold marketing, and full-stack digital power — all under one roof.
+          <p className="text-lg md:text-2xl max-w-2xl mx-auto text-gray-100 font-light drop-shadow-md">
+            Video-led storytelling and full-scale production power—crafting visuals that command attention.
           </p>
         </motion.div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-20 px-4 max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
-        {services.map((s, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: i * 0.2 }}
-            className="bg-white border rounded-xl overflow-hidden shadow-md group"
-          >
-            <Link href="/portfolio" className="block text-sm text-white hover:text-[#6b22a4] transition">
-            <div className="relative w-full h-60 overflow-hidden">
-              <video
-                src={s.video}
-                autoPlay
-                muted
-                loop
-                playsInline
-                poster={s.poster}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/40" />
-            </div>
-              </Link>
-            <div className="p-6">
-              <h3 className="text-2xl font-bold text-black mb-2">{s.title}</h3>
-              <p className="text-gray-700">{s.desc}</p>
-            </div>
-          </motion.div>
-        ))}
+      {/* ===== Detailed Services Grid (Pulled up slightly for overlapping blend) ===== */}
+      <section className="relative z-30 -mt-20 py-32 px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {services.map((s, i) => (
+            <motion.div
+              key={i}
+              id={s.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="scroll-mt-32 group"
+            >
+              <div className="relative w-full h-[400px] overflow-hidden rounded-[2.5rem] shadow-2xl shadow-gray-200">
+                <video
+                  src={s.video}
+                  autoPlay muted loop playsInline
+                  poster={s.poster}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                
+                <div className="absolute top-6 left-6 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1 rounded-full text-white text-xs font-bold tracking-widest uppercase">
+                  Production
+                </div>
+              </div>
+
+              <div className="mt-8 px-4">
+                <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 tracking-tight">
+                  {s.title}
+                </h3>
+                <p className="text-gray-600 text-lg leading-relaxed font-light mb-6">
+                  {s.desc}
+                </p>
+                
+                <Link 
+                  href="/portfolio" 
+                  className="inline-flex items-center gap-2 text-[#902ba9] font-bold uppercase tracking-widest text-sm hover:gap-4 transition-all"
+                >
+                  Look at the work <span className="text-xl">→</span>
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-[#6b22a4] py-16 px-6 text-center text-white">
-        <motion.h2
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-5xl font-bold mb-6"
-        >
-          Let’s Elevate Your Business
-        </motion.h2>
-        <Link href="/contact">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-8 py-3 bg-white text-[#6b22a4] rounded-full font-semibold text-lg"
-        >
-          Contact Us
-        </motion.button>
-        </Link>
+      {/* ===== Call to Action Section ===== */}
+      <section className="py-24 px-6">
+        <div className="max-w-6xl mx-auto bg-[#902ba9] rounded-[4rem] p-12 md:p-24 text-center text-white relative overflow-hidden shadow-2xl shadow-purple-200">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative z-10"
+          >
+            <h2 className="text-4xl md:text-7xl font-black mb-8 tracking-tighter">
+              READY TO <br className="md:hidden" /> START A PROJECT?
+            </h2>
+            <p className="text-xl md:text-2xl mb-12 opacity-80 font-light">
+              Let's turn your vision into a cinematic reality.
+            </p>
+            <Link href="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-12 py-5 bg-white text-[#902ba9] rounded-full font-black text-xl shadow-xl hover:shadow-2xl transition-all"
+              >
+                Let's Connect
+              </motion.button>
+            </Link>
+          </motion.div>
+          
+          <div className="absolute -top-20 -left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-black/10 rounded-full blur-3xl" />
+        </div>
       </section>
+
+      <div className="py-12 border-t border-gray-100 text-center">
+        <p className="text-gray-400 text-xs font-bold tracking-widest uppercase">
+          Powered by Teenera Pvt. Ltd
+        </p>
+      </div>
     </div>
   );
 }

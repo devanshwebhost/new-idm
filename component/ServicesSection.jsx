@@ -1,53 +1,67 @@
 'use client';
 import React from 'react';
+import { motion } from 'framer-motion';
 import ServiceCard from '/component/ServiceCard';
+import Link from 'next/link';
 
 const services = [
   {
-    title: 'High-Impact Ad Campaigns',
-    description: 'Design visually striking, ROI-driven ad campaigns tailored for every digital platform.',
-    videoSrc: '/assets/ad-video.mp4',
-    poster: '/assets/business.webp',
+    id: 'ads-shoots', // Unique ID
+    title: 'Ads Shoots & Production',
+    description: 'Creating high-impact commercial advertisements with professional production quality.',
+    videoSrc: 'https://res.cloudinary.com/dh90u2k3l/video/upload/v1769687484/C2684_web_ov7gka.mp4',
   },
   {
-    title: 'AI-Powered Social Media Management',
-    description: 'Automate content creation, smart scheduling, and performance tracking — all driven by AI.',
-    videoSrc: '/assets/ai-video.mp4',
-    poster: '/assets/aio.webp',
+    id: 'editing', // Unique ID
+    title: 'Video Direction & Editing',
+    description: 'Expert on-set direction combined with seamless editing to ensure your creative vision.',
+    videoSrc: 'https://res.cloudinary.com/dh90u2k3l/video/upload/v1769687605/IMG_0231_web_khmxs9.mp4',
   },
   {
-    title: 'Cinematic Video Production',
-    description: 'Transform your ideas into compelling stories with pro-grade editing, motion graphics, and animation.',
-    videoSrc: '/assets/header-2.mp4',
-    poster: '/assets/camera.webp',
+    id: 'production', // Unique ID
+    title: 'Pre & Post Production',
+    description: 'Handling the entire lifecycle of your project, from initial scripting to seamless post-production.',
+    videoSrc: 'https://res.cloudinary.com/dh90u2k3l/video/upload/v1769686307/Second_Chance_y7yhxe.mp4',
   },
   {
-    title: 'Strategic Content Planning',
-    description: 'Craft custom content strategies that engage audiences and convert clicks into results.',
-    videoSrc: '/assets/lightbg-compressed.mp4',
-    poster: '/assets/cubes.webp',
+    id: 'yt-shoots', // Unique ID
+    title: 'Yt video Shoots',
+    description: 'YouTube creators and podcasts, optimized for maximum audience engagement.',
+    videoSrc: 'https://res.cloudinary.com/dh90u2k3l/video/upload/v1769687996/IMG_0187_web_ypmawl.mp4',
   },
 ];
 
-
-
 export default function CoreOfferingsSection() {
   return (
-    <section className="py-20 px-4 bg-gray-50">
-  <div className="max-w-7xl mx-auto text-center">
-    <h2 className="text-3xl md:text-4xl font-bold mb-8">Our Core Services</h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {services.map((service, idx) => (
+    <section className="py-24 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-black text-gray-900 uppercase">
+            OUR CORE <span className="text-[#902ba9]">SERVICES</span>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+  {services.map((service, idx) => (
+    <motion.div
+      key={idx}
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ delay: idx * 0.1 }}
+      viewport={{ once: true }}
+      className="h-full" // Added: Wrapper takes full height of grid row
+    >
+      <Link href={`/services#${service.id}`} className="block h-full">
         <ServiceCard
-          key={idx}
           title={service.title}
           description={service.description}
           videoSrc={service.videoSrc}
         />
-      ))}
-    </div>
-  </div>
-</section>
-
+      </Link>
+    </motion.div>
+  ))}
+</div>
+      </div>
+    </section>
   );
 }
