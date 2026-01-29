@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import ServiceCard from '/component/ServiceCard';
+import ServiceCard from './ServiceCard';
 import Link from 'next/link';
 
 const services = [
