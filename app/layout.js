@@ -1,9 +1,11 @@
 import { Geist, Geist_Mono, Raleway } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google"; // Import the Google Analytics component
+// import { GoogleAnalytics } from "@next/third-parties/google"; // Import the Google Analytics component
 import "./globals.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import FooterWrapper from "@/component/FooterWrapper";
 import JsonLd from '@/component/JsonLd';
+import Script from "next/script";
+
 // import ChatWidget from "@/component/Agent";
 
 // Load fonts
@@ -71,9 +73,24 @@ export default function RootLayout({ children }) {
         
         <FooterWrapper/>
       </body>
+
+      <Script
+  src={`https://www.googletagmanager.com/gtag/js?id=G-ZMWNCN0RBE`}
+  strategy="afterInteractive"
+/>
+
+<Script id="google-analytics" strategy="afterInteractive">
+  {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZMWNCN0RBE');
+  `}
+</Script>
+
       
       {/* This component correctly loads the gtag script and handles page views */}
-      <GoogleAnalytics gaId="G-ZMWNCN0RBE" />
+      {/* <GoogleAnalytics gaId="" /> */}
     </html>
   );
 }
