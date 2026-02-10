@@ -103,7 +103,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Call us</p>
-                <a href="https://wa.me/9910892766" className="text-xl font-medium hover:text-[#902ba9] transition-colors">
+                <a href="https://wa.me/+919910892766" className="text-xl font-medium hover:text-[#902ba9] transition-colors">
                   +91 9910892766
                 </a>
               </div>
