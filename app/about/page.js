@@ -14,9 +14,9 @@ export default function AboutPage() {
       {/* ===== Hero Section: Cinematic Production Vibe ===== */}
       <section className="relative h-[80vh] w-full flex items-center justify-center overflow-hidden">
         <video
-          src="/assets/infinity-aura-20mb.mp4"
+          src="https://res.cloudinary.com/dsi8rmtfp/video/upload/v1770794907/infinity-aura-20mb_xi8mff.mp4"
           autoPlay muted loop playsInline
-          poster="/assets/about.webp"
+          poster="https://res.cloudinary.com/dsi8rmtfp/image/upload/v1770794883/about_oclcaq.webp"
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Dark Cinematic Overlay */}

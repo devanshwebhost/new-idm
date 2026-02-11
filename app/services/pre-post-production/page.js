@@ -5,7 +5,7 @@ export default function PrePostPage() {
     <ServiceDetailTemplate 
       title="Pre & Post Production"
       subtitle="From the rough idea in your notes to the final export on the screen. We manage the chaos."
-      heroVideo="/assets/header-2.mp4" // Ye wahi video hai jo aapke data mein tha
+      heroVideo="https://res.cloudinary.com/dsi8rmtfp/video/upload/v1770794894/header-2-compressed_bipsfv.mp4" // Ye wahi video hai jo aapke data mein tha
       
       whatWeDo="Production is 80% planning and 20% shooting. We handle the boring but critical stuff—scripts, locations, permits, and schedules—so that the creative process flows smoothly. And once the shoot is done, our post-production team turns raw footage into a polished masterpiece."
       

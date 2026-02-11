@@ -10,7 +10,7 @@ import FeaturedWork from '@/component/FeaturedWork';
 const videoList = [
   // '/assets/light-compressed.mp4',
   // '/assets/ai.mp4',
-  '/assets/header-2.mp4',
+  'https://res.cloudinary.com/dsi8rmtfp/video/upload/v1770794894/header-2-compressed_bipsfv.mp4',
   // '/assets/lightbg-compressed.mp4'
 ];
 

@@ -18,8 +18,8 @@ const services = [
     id: "editing",
     title: "Video Direction & Editing",
     desc: "Sharp direction on set meets crisp, rhythmic editing. We turn raw footage into cinematic stories that keep eyes glued to the screen till the very last second.",
-    video: "/assets/editing-compressed.mp4",
-    poster: "/assets/editing-poster.webp",
+    video: "",
+    poster: "https://res.cloudinary.com/dsi8rmtfp/image/upload/v1770794891/favicon_vckvco.svg",
     link: "/services/video-editing", // Linked to dedicated page
   },
   {
@@ -27,7 +27,7 @@ const services = [
     title: "Pre & Post Production",
     desc: "From the first brainstorm to the final export. We handle the heavy lifting—planning, logistics, and the final polish—so you just focus on the big picture.",
     video: "/assets/header-2.mp4",
-    poster: "/assets/production.jpg",
+    poster: "https://res.cloudinary.com/dsi8rmtfp/image/upload/v1770794907/production_qiriqm.jpg",
     link: "/services/pre-post-production", // Linked to dedicated page
   },
   {
@@ -61,9 +61,9 @@ export default function ServicesPage() {
       <section className="relative h-[85vh] w-full overflow-hidden flex items-center justify-center bg-black">
         <motion.video
           style={{ scale: videoScale, opacity: videoOpacity }}
-          src="/assets/service-better.mp4"
+          src="https://res.cloudinary.com/dsi8rmtfp/video/upload/v1770794912/service-better_temx4e.mp4"
           autoPlay muted loop playsInline
-          poster="/assets/service-poster.webp"
+          poster="https://res.cloudinary.com/dsi8rmtfp/image/upload/v1770794909/service-poster_vsufyo.webp"
           className="absolute w-full h-full object-cover"
         />
         
