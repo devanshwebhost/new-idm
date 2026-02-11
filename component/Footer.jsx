@@ -63,7 +63,9 @@ export default function Footer() {
 
       <div className="mt-12 text-center text-sm text-gray-500">
         {/* <p>© 2024 Teenera Pvt. Ltd. All rights reserved.</p> */}
-        <p>© 2024 Indocs Media All rights reserved.</p>
+        <p>
+  &copy; 2023-{new Date().getFullYear()} Indocs Media All rights reserved.
+</p>
       </div>
     </footer>
   );

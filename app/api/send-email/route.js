@@ -73,7 +73,7 @@
             <p style="margin: 5px 0;">Best regards,</p>
             <p style="margin: 0; font-weight: bold; color: #6b22a4;">The Indocs Media Team</p>
             <hr style="margin: 15px 0; border: none; border-top: 1px solid #ddd;" />
-            <p style="margin: 0;">© ${new Date().getFullYear()} Indocs Media. All rights reserved.</p>
+            <p style="margin: 0;">© 2023-${new Date().getFullYear()} Indocs Media. All rights reserved.</p>
           </div>
         </div>
       </div>

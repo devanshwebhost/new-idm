@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, MessageSquare, MapPin, Send, CheckCircle2 } from "lucide-react";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Menu from '@/component/Menu';
@@ -99,10 +99,10 @@ export default function ContactPage() {
 
             <motion.div whileHover={{ x: 10 }} className="flex items-start gap-6 group">
               <div className="p-4 bg-gray-50 rounded-2xl group-hover:bg-[#902ba9] group-hover:text-white transition-all duration-300">
-                <Phone size={24} />
+                <MessageSquare size={24} />
               </div>
               <div>
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Call us</p>
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Lets Chat</p>
                 <a href="https://wa.me/+919910892766" className="text-xl font-medium hover:text-[#902ba9] transition-colors">
                   +91 9910892766
                 </a>
@@ -114,7 +114,7 @@ export default function ContactPage() {
                 <MapPin size={24} />
               </div>
               <div>
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Office</p>
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">WorkSpace</p>
                 <p className="text-xl font-medium">Delhi, India</p>
               </div>
             </motion.div>

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Menu from '@/component/Menu'; // Naya component import karein
 import CoreOfferingsSection from '@/component/ServicesSection';
+import FeaturedWork from '@/component/FeaturedWork';
 
 const videoList = [
   // '/assets/light-compressed.mp4',
@@ -70,6 +71,7 @@ export default function HomePage() {
 
       {/* <ServicesSection /> */}
       <CoreOfferingsSection/>
+      <FeaturedWork />
 
       {/* ===== About CTA Section (Indocs Media Branding) ===== */}
       <section id="about" className="py-32 px-6 bg-white relative overflow-hidden">
@@ -79,7 +81,7 @@ export default function HomePage() {
             whileInView={{ opacity: 1 }}
             className="text-[#902ba9] font-bold tracking-widest text-sm uppercase mb-4 block"
           >
-            Est. 2024
+            Est. 2023
           </motion.span>
           <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight">We Are Indocs Media</h2>
           <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed font-light">

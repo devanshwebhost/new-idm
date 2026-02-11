@@ -10,24 +10,28 @@ const services = [
     title: 'Ads Shoots & Production',
     description: 'Creating high-impact commercial advertisements with professional production quality.',
     videoSrc: 'https://res.cloudinary.com/dh90u2k3l/video/upload/v1769687484/C2684_web_ov7gka.mp4',
+    link: '/services/ads-production', // Link to the service detail page
   },
   {
     id: 'editing', // Unique ID
     title: 'Video Direction & Editing',
     description: 'Expert on-set direction combined with seamless editing to ensure your creative vision.',
     videoSrc: 'https://res.cloudinary.com/dh90u2k3l/video/upload/v1769687605/IMG_0231_web_khmxs9.mp4',
+    link: '/services/video-editing', // Link to the service detail page
   },
   {
     id: 'production', // Unique ID
     title: 'Pre & Post Production',
     description: 'Handling the entire lifecycle of your project, from initial scripting to seamless post-production.',
     videoSrc: 'https://res.cloudinary.com/dh90u2k3l/video/upload/v1769686307/Second_Chance_y7yhxe.mp4',
+    link: '/services/pre-post-production', // Link to the service detail page
   },
   {
     id: 'yt-shoots', // Unique ID
     title: 'Yt video Shoots',
     description: 'YouTube creators and podcasts, optimized for maximum audience engagement.',
     videoSrc: 'https://res.cloudinary.com/dh90u2k3l/video/upload/v1769687996/IMG_0187_web_ypmawl.mp4',
+    link: '/services/youtube-shoots', // Link to the service detail page
   },
 ];
 
@@ -51,7 +55,7 @@ export default function CoreOfferingsSection() {
       viewport={{ once: true }}
       className="h-full" // Added: Wrapper takes full height of grid row
     >
-      <Link href={`/services#${service.id}`} className="block h-full">
+      <Link href={service.link} className="block h-full">
         <ServiceCard
           title={service.title}
           description={service.description}

@@ -9,30 +9,34 @@ const services = [
   {
     id: "ads-shoots",
     title: "Ads Shoots & Production",
-    desc: "From concept to screen, we craft high-impact commercial advertisements with professional production quality that grab attention and convert.",
+    desc: "Scroll-stopping ads that don't feel like boring commercials. We craft high-energy visuals designed to grab attention instantly and actually drive results.",
     video: "https://res.cloudinary.com/dh90u2k3l/video/upload/v1769688557/IMG_0233_web_z8nsss.mp4",
     poster: "/assets/logo.webp",
+    link: "/services/ads-production", // Linked to dedicated page
   },
   {
     id: "editing",
     title: "Video Direction & Editing",
-    desc: "Expert on-set direction paired with cinematic, story-driven editing to transform your creative vision into polished, powerful visuals.",
+    desc: "Sharp direction on set meets crisp, rhythmic editing. We turn raw footage into cinematic stories that keep eyes glued to the screen till the very last second.",
     video: "/assets/editing-compressed.mp4",
     poster: "/assets/editing-poster.webp",
+    link: "/services/video-editing", // Linked to dedicated page
   },
   {
     id: "production",
     title: "Pre & Post Production",
-    desc: "Expert on-set direction combined with seamless, story-driven editing to ensure your creative vision is captured and polished perfectly.",
+    desc: "From the first brainstorm to the final export. We handle the heavy lifting—planning, logistics, and the final polish—so you just focus on the big picture.",
     video: "/assets/header-2.mp4",
     poster: "/assets/production.jpg",
+    link: "/services/pre-post-production", // Linked to dedicated page
   },
   {
     id: "yt-shoots",
     title: "Yt video Shoots",
-    desc: "Specialized high-quality shoots for YouTube creators and podcasts, optimized for maximum audience engagement and retention — with a chill, fun on-set vibe that keeps creators relaxed and content flowing naturally.",
+    desc: "Top-tier shoots for creators & podcasts designed for high retention. No stress, just good vibes—so you can focus on creating your best content.",
     video: "https://res.cloudinary.com/dh90u2k3l/video/upload/v1769689870/IMG_0183_web_rtsrrj.mp4",
     poster: "/assets/logo.webp",
+    link: "/services/youtube-shoots", // Linked to dedicated page
   },
 ];
 
@@ -101,28 +105,36 @@ export default function ServicesPage() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="scroll-mt-32 group"
             >
-              <div className="relative w-full h-[400px] overflow-hidden rounded-[2.5rem] shadow-2xl shadow-gray-200">
-                <video
-                  src={s.video}
-                  autoPlay muted loop playsInline
-                  poster={s.poster}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-                
-                <div className="absolute top-6 left-6 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1 rounded-full text-white text-xs font-bold tracking-widest uppercase">
-                  Production
+              {/* VIDEO CARD LINKED TO SERVICE DETAIL PAGE */}
+              <Link href={s.link} className="block cursor-pointer">
+                <div className="relative w-full h-[400px] overflow-hidden rounded-[2.5rem] shadow-2xl shadow-gray-200">
+                  <video
+                    src={s.video}
+                    autoPlay muted loop playsInline
+                    poster={s.poster}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                  
+                  <div className="absolute top-6 left-6 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1 rounded-full text-white text-xs font-bold tracking-widest uppercase">
+                    Production
+                  </div>
                 </div>
-              </div>
+              </Link>
 
               <div className="mt-8 px-4">
-                <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 tracking-tight">
-                  {s.title}
-                </h3>
+                {/* TITLE LINKED TO SERVICE DETAIL PAGE */}
+                <Link href={s.link} className="block w-fit">
+                    <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 tracking-tight hover:text-[#902ba9] transition-colors">
+                    {s.title}
+                    </h3>
+                </Link>
+
                 <p className="text-gray-600 text-lg leading-relaxed font-light mb-6">
                   {s.desc}
                 </p>
                 
+                {/* PORTFOLIO LINK (UNCHANGED) */}
                 <Link 
                   href="/portfolio" 
                   className="inline-flex items-center gap-2 text-[#902ba9] font-bold uppercase tracking-widest text-sm hover:gap-4 transition-all"
@@ -168,7 +180,8 @@ export default function ServicesPage() {
 
       <div className="py-12 border-t border-gray-100 text-center">
         <p className="text-gray-400 text-xs font-bold tracking-widest uppercase">
-          Powered by Teenera Pvt. Ltd
+          {/* Powered by Teenera Pvt. Ltd */}
+          The era of cinematic storytelling for brands has arrived. Let's create something unforgettable together.
         </p>
       </div>
     </div>
