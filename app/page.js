@@ -71,7 +71,7 @@ export default function HomePage() {
 
       {/* <ServicesSection /> */}
       <CoreOfferingsSection/>
-      <FeaturedWork />
+      {/* <FeaturedWork /> */}
 
       {/* ===== About CTA Section (Indocs Media Branding) ===== */}
       <section id="about" className="py-32 px-6 bg-white relative overflow-hidden">

@@ -7,7 +7,7 @@ import ScrollVelocity from '@/component/Scrollvelocity';
 import RotatingText from '@/component/Rotating';
 import PortfolioCard from '@/component/PortfolioCard';
 import LightRays from '@/component/Lightrays';
-import LiveWorkArchive from '@/component/LiveWorkArchive';
+// import LiveWorkArchive from '@/component/LiveWorkArchive';
 
 // Portfolio Data categorized by sections
 const portfolioData = {
@@ -50,7 +50,7 @@ export default function PortfolioPage() {
         </p>
       </section>
 
-      <LiveWorkArchive />
+      {/* <LiveWorkArchive /> */}
 
       {/* ===== Scroll Velocity Branding ===== */}
       {/* <div className="py-12 border-y border-white/5 bg-white/5 backdrop-blur-sm">
