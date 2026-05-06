@@ -165,7 +165,7 @@ export default function ContactPage() {
                 <input
                   type="text"
                   name="name"
-                  placeholder="Devansh Rajput"
+                  placeholder="Please enter your full name"
                   value={form.name}
                   onChange={handleChange}
                   required
@@ -177,7 +177,7 @@ export default function ContactPage() {
                 <input
                   type="email"
                   name="email"
-                  placeholder="name@example.com"
+                  placeholder="Please enter your email address"
                   value={form.email}
                   onChange={handleChange}
                   required
