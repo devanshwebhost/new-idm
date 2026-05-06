@@ -48,7 +48,7 @@ export default function Footer() {
             <a href="https://wa.me/+917972929641" className="hover:text-black block">7972929641</a>
           </p>
           <div className="flex space-x-4 mt-3 text-xl">
-            <a href="https://wa.me/+919999513446" className="text-gray-600 hover:text-black" target="_blank">
+            <a href="https://wa.me/+919910892766" className="text-gray-600 hover:text-black" target="_blank">
               <i className="fab fa-whatsapp" />
             </a>
             <a href="https://www.instagram.com/indocsmedia?utm_source=qr&igsh=MXpxd2FyajNjcnBp" className="text-gray-600 hover:text-black" target="_blank">
